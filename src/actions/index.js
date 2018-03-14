@@ -1,14 +1,14 @@
 export const ADD_LIST = 'ADD_LIST';
 export const ADD_CARD = 'ADD_CARD';
 
-var listId = 0;
+var listCounter = 0;
 
 export function addList(title) {
     console.log(title);
-    console.log(listId);
+    console.log(listCounter);
     return {
         type: ADD_LIST,
-        id: listId++,
+        id: listCounter++,
         title,
         cards: []
     }

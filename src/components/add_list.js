@@ -19,9 +19,14 @@ class AddList extends Component {
     );
   }
 
-  onSubmit(formData) {
-    console.log(formData);
-    addList(formData);
+  onSubmit(values) {
+    console.log(values);
+    this.props.addList(values.listTitle)
+  }
+
+  createList(e) {
+    e.preventDefault();
+    console.log(e.target.value);
     // this.props.addList(title)
     
   }
@@ -35,7 +40,7 @@ class AddList extends Component {
               name="listTitle" 
               component={this.renderField}
             />
-            <button type="submit">Add List</button>
+            <button className="btn btn-primary" type="submit">Add List</button>
         </form>
       </div>
     );

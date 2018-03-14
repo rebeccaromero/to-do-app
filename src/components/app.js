@@ -9,13 +9,22 @@ import _ from 'lodash';
 
 class App extends Component {
   renderLists() {
-    return _.map(this.props.lists, list =>{
+    console.log('rendering lists');
+    console.log(this.props.lists.lists);
+    if (this.props.lists.lists.length === 0) {
       return (
-        <div className="list" key={list.id}>
-          <h3>{list.listTitle}</h3>
-        </div>
+        <h3>Add a list sucka!</h3>
       )
-    })
+    } else {
+      return _.map(this.props.lists.lists, list =>{
+        console.log(list.id)
+        return (
+          <div className="list" key={list.id}>
+            <h3>{list.title}</h3>
+          </div>
+        )
+      })
+    }
   }
 
   render() {
@@ -23,10 +32,10 @@ class App extends Component {
     return (
       <div>
         <h1>To Do List Application</h1>
-        <AddList/>
         <div className="lists-container">
           {this.renderLists()}
         </div>
+        <AddList/>
         {/* <List /> */}
       </div>
     );
